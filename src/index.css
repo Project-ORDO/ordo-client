@@ -1,1 +1,424 @@
+/* src/index.css */
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Primary Colors - Electric Blue */
+    --primary-50: 239 246 255;
+    --primary-100: 219 234 254;
+    --primary-200: 191 219 254;
+    --primary-300: 147 197 253;
+    --primary-400: 96 165 250;
+    --primary-500: 14 165 233; /* #0ea5e9 - Light mode primary */
+    --primary-600: 2 132 199;  /* #0284c7 - Dark mode primary */
+    --primary-700: 3 105 161;
+    --primary-800: 7 89 133;
+    --primary-900: 12 74 110;
+    --primary-950: 8 47 73;
+
+    /* Secondary Colors - Teal */
+    --secondary-50: 240 253 250;
+    --secondary-100: 204 251 241;
+    --secondary-200: 153 246 228;
+    --secondary-300: 94 234 212;
+    --secondary-400: 45 212 191;
+    --secondary-500: 20 184 166;
+    --secondary-600: 13 148 136;
+    --secondary-700: 15 118 110;
+    --secondary-800: 17 94 89;
+    --secondary-900: 19 78 74;
+
+    /* Accent Colors - Orange */
+    --accent-50: 255 247 237;
+    --accent-100: 255 237 213;
+    --accent-200: 254 215 170;
+    --accent-300: 253 186 116;
+    --accent-400: 251 146 60;
+    --accent-500: 249 115 22;
+    --accent-600: 234 88 12;
+    --accent-700: 194 65 12;
+    --accent-800: 154 52 18;
+    --accent-900: 124 45 18;
+
+    /* Success Colors */
+    --success-50: 240 253 244;
+    --success-100: 220 252 231;
+    --success-200: 187 247 208;
+    --success-300: 134 239 172;
+    --success-400: 74 222 128;
+    --success-500: 34 197 94;
+    --success-600: 22 163 74;
+    --success-700: 21 128 61;
+    --success-800: 22 101 52;
+    --success-900: 20 83 45;
+
+    /* Warning Colors */
+    --warning-50: 255 251 235;
+    --warning-100: 254 243 199;
+    --warning-200: 253 230 138;
+    --warning-300: 252 211 77;
+    --warning-400: 251 191 36;
+    --warning-500: 245 158 11;
+    --warning-600: 217 119 6;
+    --warning-700: 180 83 9;
+    --warning-800: 146 64 14;
+    --warning-900: 120 53 15;
+
+    /* Error Colors */
+    --error-50: 254 242 242;
+    --error-100: 254 226 226;
+    --error-200: 254 202 202;
+    --error-300: 252 165 165;
+    --error-400: 248 113 113;
+    --error-500: 239 68 68;
+    --error-600: 220 38 38;
+    --error-700: 185 28 28;
+    --error-800: 153 27 27;
+    --error-900: 127 29 29;
+
+    /* Neutral Colors for Light Mode */
+    --neutral-50: 248 250 252;
+    --neutral-100: 241 245 249;
+    --neutral-200: 226 232 240;
+    --neutral-300: 203 213 225;
+    --neutral-400: 148 163 184;
+    --neutral-500: 100 116 139;
+    --neutral-600: 71 85 105;
+    --neutral-700: 51 65 85;
+    --neutral-800: 30 41 59;
+    --neutral-900: 15 23 42;
+
+    /* Background and Surface */
+    --background: 255 255 255;
+    --surface: 248 250 252;
+    --surface-hover: 241 245 249;
+    
+    /* Text Colors */
+    --text-primary: 30 41 59;
+    --text-secondary: 100 116 139;
+    --text-muted: 148 163 184;
+    
+    /* Border Colors */
+    --border: 226 232 240;
+    --border-hover: 203 213 225;
+    
+    /* Shadow Colors */
+    --shadow-primary: 14 165 233;
+    --shadow-secondary: 0 0 0;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --primary-500: 2 132 199;  /* Darker blue for dark mode */
+    --primary-600: 3 105 161;
+    --primary-400: 14 165 233; /* Brighter for hover states */
+
+    /* Dark Mode Backgrounds - Using your preferred #0d0d10 */
+    --background: 13 13 16;    /* #0d0d10 */
+    --surface: 20 20 26;       /* Slightly lighter for cards */
+    --surface-hover: 28 28 35; /* Even lighter for hover states */
+    
+    /* Dark Mode Text */
+    --text-primary: 248 250 252;
+    --text-secondary: 148 163 184;
+    --text-muted: 100 116 139;
+    
+    /* Dark Mode Borders */
+    --border: 40 40 50;        /* Subtle borders on dark background */
+    --border-hover: 60 60 70;  /* Slightly more visible on hover */
+    
+    /* Dark Mode Shadow */
+    --shadow-primary: 2 132 199;
+    --shadow-secondary: 0 0 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--text-primary));
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgb(var(--surface));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--border-hover));
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--text-muted));
+  }
+}
+
+@layer components {
+  /* Custom Button Styles */
+  .btn-primary {
+    background-color: rgb(var(--primary-500));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  
+  .btn-primary:hover {
+    background-color: rgb(var(--primary-600));
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  
+  .btn-secondary {
+    background-color: rgb(var(--secondary-500));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgb(var(--secondary-600));
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+  
+  .btn-outline {
+    border: 2px solid rgb(var(--primary-500));
+    color: rgb(var(--primary-500));
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: rgb(var(--primary-500));
+    color: white;
+  }
+  
+  .btn-ghost {
+    color: rgb(var(--primary-500));
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-ghost:hover {
+    background-color: rgb(var(--primary-500) / 0.1);
+  }
+
+  /* Card Styles */
+  .card {
+    background-color: rgb(var(--surface));
+    border: 1px solid rgb(var(--border));
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  
+  .card-hover {
+    background-color: rgb(var(--surface));
+    border: 1px solid rgb(var(--border));
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .card-hover:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    background-color: rgb(var(--surface-hover));
+  }
+
+  /* Input Styles */
+  .input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: 0.5rem;
+    background-color: rgb(var(--surface));
+    color: rgb(var(--text-primary));
+    transition: all 0.2s ease;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: rgb(var(--primary-500));
+    box-shadow: 0 0 0 3px rgb(var(--primary-500) / 0.1);
+  }
+  
+  .input::placeholder {
+    color: rgb(var(--text-muted));
+  }
+
+  /* Text Styles */
+  .text-primary-content {
+    color: rgb(var(--text-primary));
+  }
+  
+  .text-secondary-content {
+    color: rgb(var(--text-secondary));
+  }
+  
+  .text-muted-content {
+    color: rgb(var(--text-muted));
+  }
+
+  /* Layout Styles */
+  .container-app {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-app {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-app {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  .section-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  /* Ordo Specific Components */
+  .ordo-primary {
+    background-color: rgb(var(--primary-500));
+  }
+  
+  .ordo-primary-hover:hover {
+    background-color: rgb(var(--primary-600));
+  }
+  
+  .ordo-text-primary {
+    color: rgb(var(--primary-500));
+  }
+  
+  .ordo-border-primary {
+    border-color: rgb(var(--primary-500));
+  }
+  
+  .ordo-shadow-primary {
+    box-shadow: 0 4px 25px -5px rgb(var(--shadow-primary) / 0.3), 0 10px 10px -5px rgb(var(--shadow-primary) / 0.1);
+  }
+}
+
+@layer utilities {
+  /* Custom Shadow Utilities */
+  .shadow-soft {
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  }
+  
+  .shadow-medium {
+    box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .shadow-strong {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Gradient Utilities */
+  .gradient-primary {
+    background: linear-gradient(to right, rgb(var(--primary-500)), rgb(var(--secondary-500)));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(to right, rgb(var(--accent-500)), rgb(var(--warning-500)));
+  }
+  
+  .gradient-success {
+    background: linear-gradient(to right, rgb(var(--success-500)), rgb(var(--secondary-500)));
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .animate-scale-up {
+    animation: scaleUp 0.2s ease-out;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    transform: translateY(-10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes scaleUp {
+  from { 
+    transform: scale(0.95); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
