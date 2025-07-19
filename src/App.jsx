@@ -1,6 +1,7 @@
 import React from 'react'
 import AuthForm from './components/Form'
 import LoginPage from './pages/user/Login'
+import SignupPage from './pages/user/Signup'
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       </div>
       <AuthForm />
       <LoginPage />
+      <SignupPage/>
     </div>
   )
 }

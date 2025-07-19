@@ -10,7 +10,7 @@ const LoginPage = () => {
 
   return (
     <AuthForm
-      heading="Login to Your Account"
+      heading="Login"
       onSubmit={handleLogin}
       submitText="Login"
       fields={[
