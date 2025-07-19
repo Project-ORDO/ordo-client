@@ -1,7 +1,7 @@
 import AuthForm from "../../components/Form";
 import { signupSchema } from "../../validations/authValidation";
 
-const SignupPage = () => {
+const SignupForm = () => {
   const handleSignup = (data) => {
     console.log("Signup Data:", data);
     // You can add validation or API calls later here

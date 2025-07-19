@@ -16,7 +16,7 @@ const AuthForm = ({
   } = useForm();
 
   return (
-    <div className="max-w-md mx-auto p-6 --background   rounded-2xl shadow-soft container-app" style={{ backgroundColor: "rgb(var(--surface))" }}>
+    <div className="max-w-md mx-auto p-6 --background   rounded-2xl shadow-soft container-app  dark:bg-[rgb(var(--surface))]" >
       <h2 className="text-2xl font-bold mb-6 text-primary-content text-center">{heading}</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -28,7 +28,7 @@ const AuthForm = ({
             <input
               type={field.type || "text"}
               {...register(field.name, field.validation)}
-              className="w-full p-2  border  input  rounded dark:bg-[rgb(var(--surface))] dark:text-white"
+              className="w-full p-2  border  input  rounded  dark:bg-[rgb(var(--surface))] dark:text-white"
               placeholder={field.placeholder}
             />
             {errors[field.name] && (
