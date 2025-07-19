@@ -1,4 +1,5 @@
 import AuthForm from "../../components/Form";
+import { signupSchema } from "../../validations/authValidation";
 
 const SignupPage = () => {
   const handleSignup = (data) => {
@@ -11,6 +12,7 @@ const SignupPage = () => {
       heading="Sign Up"
       onSubmit={handleSignup}
       submitText="Sign Up"
+      validationSchema={signupSchema}
       fields={[
         {
           name: "username",
