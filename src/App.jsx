@@ -1,14 +1,13 @@
-import React from 'react'
 import Navbar from './components/layouts/Navbar'
 import Footer from './components/layouts/Footer'
-import { LogIn } from 'lucide-react'
 import SignupPage from './pages/user/Signup'
+import LoginPage from './pages/user/Login'
 
 const App = () => {
   return (
-    <div className='text-red-500 .dark .card'>
+    <div >
       <Navbar />
-        <LogIn />
+        <LoginPage />
         <SignupPage/>
       <Footer />
     </div>
