@@ -1,24 +1,16 @@
-import React from 'react'
-import AuthForm from './components/Form'
-import LoginPage from './pages/user/Login'
+import Navbar from './components/layouts/Navbar'
+import Footer from './components/layouts/Footer'
 import SignupPage from './pages/user/Signup'
+import LoginPage from './pages/user/Login'
 
 const App = () => {
   return (
-
-    <>
-    <div className='text-red-500 .dark .card'>
-      <div>
-        <button className='.btn-primary'>button</button>
-      </div>
-     
+    <div >
+      <Navbar />
+        <LoginPage />
+        <SignupPage/>
+      <Footer />
     </div>
-      <LoginPage />
-      <div className='mt-20'></div>
-      <SignupPage/>
-      <div className='mt-20'></div>
-    </>
-    
   )
 }
 
