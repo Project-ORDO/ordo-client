@@ -1,4 +1,5 @@
 import React from 'react'
+import AuthForm from './components/Form'
 
 const App = () => {
   return (
@@ -6,6 +7,7 @@ const App = () => {
       <div>
         <button className='.btn-primary'>button</button>
       </div>
+      <AuthForm />
     </div>
   )
 }
