@@ -2,7 +2,7 @@
 
 import AuthForm from "../../components/Form";
 import { loginSchema } from "../../validations/authValidation";
-const LoginPage = () => {
+const LoginForm = () => {
   const handleLogin = (data) => {
     console.log("Login Data:", data);
     // Add your login logic here
