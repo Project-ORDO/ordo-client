@@ -13,9 +13,10 @@ const App = () => {
       </div>
      
     </div>
-     <AuthForm />
       <LoginPage />
+      <div className='mt-20'></div>
       <SignupPage/>
+      <div className='mt-20'></div>
     </>
     
   )
