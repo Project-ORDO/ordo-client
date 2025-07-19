@@ -60,4 +60,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginPage;
+export default LoginForm;
