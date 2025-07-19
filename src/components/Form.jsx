@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+// import  {Link}  from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const AuthForm = ({
@@ -47,14 +47,30 @@ const AuthForm = ({
       </form>
 
       <div className="mt-4 text-sm text-center space-y-1">
-        {extraLinks.map((link, index) => (
+
+        {/* uncommet this when browser router is availiable */}
+
+        {/* {extraLinks.map((link, index) => (
           <div key={index}>
             {link.label}{" "}
-            {/* <Link to={link.to} className="text-blue-600 underline"> */}
-              {/* {link.text}
-            </Link> */}
+            <Link to={link.to} className="text-blue-600 underline">
+              {link.text}
+            </Link>
           </div>
-        ))}
+        ))} */}
+
+        {extraLinks.map((link, index) => (
+  <div key={index}>
+    {link.label}{" "}
+    <span
+      className="text-blue-600 underline cursor-pointer"
+      onClick={() => console.log(`Clicked on ${link.text}`)}
+    >
+      {link.text}
+    </span>
+  </div>
+))}
+
       </div>
     </div>
   );
