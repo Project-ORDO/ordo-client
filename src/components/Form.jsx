@@ -7,7 +7,7 @@ const AuthForm = ({
   fields = [],
   submitText = "Submit",
   extraLinks = [],
-   validationSchema,
+  validationSchema,
 }) => {
   const {
     register,
@@ -16,8 +16,10 @@ const AuthForm = ({
   } = useForm();
 
   return (
-    <div className="max-w-md mx-auto p-6 --background   rounded-2xl shadow-soft container-app  dark:bg-[rgb(var(--surface))]" >
-      <h2 className="text-2xl font-bold mb-6 text-primary-content text-center">{heading}</h2>
+    <div className="max-w-md mx-auto p-6 --background   rounded-2xl shadow-soft container-app  dark:bg-[rgb(var(--surface))]">
+      <h2 className="text-2xl font-bold mb-6 text-primary-content text-center">
+        {heading}
+      </h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {fields.map((field) => (
@@ -48,7 +50,6 @@ const AuthForm = ({
       </form>
 
       <div className="mt-4 text-sm text-center space-y-1">
-
         {/* uncommet this when browser router is availiable */}
 
         {/* {extraLinks.map((link, index) => (
@@ -61,17 +62,16 @@ const AuthForm = ({
         ))} */}
 
         {extraLinks.map((link, index) => (
-  <div key={index}>
-    {link.label}{" "}
-    <span
-      className="text-blue-600 underline cursor-pointer"
-      onClick={() => console.log(`Clicked on ${link.text}`)}
-    >
-      {link.text}
-    </span>
-  </div>
-))}
-
+          <div key={index}>
+            {link.label}{" "}
+            <span
+              className="text-blue-600 underline cursor-pointer"
+              onClick={() => console.log(`Clicked on ${link.text}`)}
+            >
+              {link.text}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
