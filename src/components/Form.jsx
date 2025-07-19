@@ -1,6 +1,5 @@
 // import  {Link}  from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 const AuthForm = ({
   heading,
@@ -14,9 +13,7 @@ const AuthForm = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: validationSchema ? yupResolver(validationSchema) : undefined,
-  });
+  } = useForm();
 
   return (
     <div className="max-w-md mx-auto p-6  rounded-2xl shadow-soft container-app">
