@@ -32,7 +32,7 @@ const AuthForm = ({
               placeholder={field.placeholder}
             />
             {errors[field.name] && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="--error-900 text-sm mt-1">
                 {errors[field.name].message}
               </p>
             )}
