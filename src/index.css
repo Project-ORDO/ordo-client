@@ -77,18 +77,18 @@
 }
 
 .dark {
-  --background: oklch(0.2 0.1 195); /* Dark cyan */
+  --background: oklch(12.96% 0.027 261.69); /* Dark cyan */
   --foreground: oklch(0.95 0 0); /* Light gray */
-  --card: oklch(0.25 0.1 195); /* Darker cyan */
+  --card: oklch(23.74% 0.06178 247.758); /* Darker cyan */
   --card-foreground: oklch(0.95 0 0); /* Light gray */
   --popover: oklch(0.25 0.1 195); /* Darker cyan */
   --popover-foreground: oklch(0.95 0 0); /* Light gray */
-  --primary: oklch(0.75 0.15 195); /* Cyan blue #00C4FF */
+  --primary: oklch(57.653% 0.13359 240.987); /* Cyan blue #00C4FF */
   --primary-foreground: oklch(1 0 0); /* White */
   --secondary: oklch(0.3 0.1 195); /* Darker cyan */
   --secondary-foreground: oklch(0.95 0 0); /* Light gray */
-  --muted: oklch(0.3 0.1 195); /* Dark muted cyan */
-  --muted-foreground: oklch(0.5 0.1 195); /* Medium cyan */
+  --muted: oklch(26.554% 0.05692 235.733); /* Dark muted cyan */
+  --muted-foreground: oklch(61.263% 0.13773 239.341); /* Medium cyan */
   --accent: oklch(0.8 0.15 195); /* Neon cyan #00E7FF */
   --accent-foreground: oklch(1 0 0); /* White */
   --destructive: oklch(0.704 0.191 22.216); /* Red */
@@ -115,7 +115,7 @@
     @apply border-border outline-ring/50 transition-all duration-300;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground bg-gradient-to-br from-background to-muted;
   }
   button:hover, a:hover {
     @apply animate-pulse;
