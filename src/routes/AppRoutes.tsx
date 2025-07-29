@@ -13,6 +13,10 @@ import Profile from "@/pages/user/Profile";
 import AdminLayout from "@/layout/AdminLayout";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import ManageUsers from "@/pages/admin/ManageUsers";
+import { CheckEmailPage } from "@/pages/user/auth/CheckEmailPage";
+import { EmailVerificationFailedPage } from "@/pages/user/auth/VerificationFailedPage";
+import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPage";
+import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 
 const AppRoutes = () => {
   return (
@@ -28,6 +32,7 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
+       
           <Route
             path="/signup"
             element={
@@ -36,7 +41,39 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
-        </Route>
+          <Route
+            path="/verify-email"
+            element={
+              <PublicRoute>
+                <CheckEmailPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/verify-email-failed"
+            element={
+              <PublicRoute>
+                <EmailVerificationFailedPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/verify-email-success"
+            element={
+              <PublicRoute>
+                <VerificationSuccessPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/verify-email-expired"
+            element={
+              <PublicRoute>
+                <VerificationExpiredPage />
+              </PublicRoute>
+            }
+          />
+           </Route>
 
         {/* 👤 User Protected Routes */}
         <Route
