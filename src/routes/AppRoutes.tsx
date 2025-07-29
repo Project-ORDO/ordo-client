@@ -4,6 +4,8 @@ import ProtectedRoute from "./ProtectedRoute";
 
 import Login from "@/pages/common/Login";
 import Signup from "@/pages/common/Signup";
+import ForgotPassword from "@/pages/common/ForgotPassword";
+
 
 import CommonLayout from "@/layout/CommonLayout";
 import UserLayout from "@/layout/UserLayout";
@@ -36,6 +38,15 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
+
+                <Route
+          path="/forgot-password"
+          element={
+            <PublicRoute>
+              <ForgotPassword />
+            </PublicRoute>
+          }
+        />
         </Route>
 
         {/* 👤 User Protected Routes */}
