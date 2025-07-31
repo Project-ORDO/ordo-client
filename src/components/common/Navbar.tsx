@@ -1,14 +1,8 @@
 import React from 'react';
 import { Bell, User } from 'lucide-react';
+import type { IUser } from '@/types/User.types';
 
-interface User {
-  isLoggedIn: boolean;
-  name: string;
-  avatar: string;
-  notifications: number;
-}
-
-const mockUser: User = {
+const mockUser: IUser = {
   isLoggedIn: true,
   name: "John Doe",
   avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face&auto=format",

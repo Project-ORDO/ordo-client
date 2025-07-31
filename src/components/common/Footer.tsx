@@ -1,20 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Moon, Sun } from 'lucide-react';
+import type { FooterLink, FooterLinks, SocialLink } from '@/types/Layout.types';
 
-interface FooterLink {
-  name: string;
-  href: string;
-}
-
-interface SocialLink {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  href: string;
-  label: string;
-}
-
-interface FooterLinks {
-  quickLinks: FooterLink[];
-}
 
 const Footer: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
