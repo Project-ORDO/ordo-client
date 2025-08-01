@@ -26,7 +26,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+    <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-md shadow-lg border rounded-xl">
         <CardContent className="p-8">
           <h1 className="text-2xl font-semibold text-center mb-2">Forgot your password?</h1>
