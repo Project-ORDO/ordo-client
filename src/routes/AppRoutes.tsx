@@ -86,6 +86,7 @@ const AppRoutes = () => {
             </PublicRoute>
           }
         />
+         <Route path="/profile" element={<Profile />} />
         </Route>
 
 
@@ -101,7 +102,7 @@ const AppRoutes = () => {
           }
         >
           <Route index element={<Home />} />
-          <Route path="profile" element={<Profile />} />
+         
         </Route>
 
         {/* 🛡️ Admin Protected Routes */}
