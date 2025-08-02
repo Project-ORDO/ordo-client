@@ -4,7 +4,6 @@ import { Label } from "@/components/ui/label"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
 import { Link } from "react-router-dom";
-import { FaGoogle, FaGithub } from "react-icons/fa"; // Font Awesome icons
 
 import {
     Form,
@@ -16,6 +15,7 @@ import {
 import { useForm } from "react-hook-form"
 import { Github, GithubIcon, Mail } from "lucide-react"
 import { loginSchema } from "@/validation/authValidation"
+import OAuthButtons from "@/components/auth/OAuthButtons"
 
 
 export function LoginForm() {
@@ -44,24 +44,10 @@ export function LoginForm() {
             <h2 className="text-xl font-semibold mb-6 text-center">Login</h2>
 
             {/* OAuth Buttons */}
-            <div className="space-y-3 mb-6">
-                <Button
-                    variant="outline"
-                    className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
-                    onClick={() => handleOAuthLogin("google")}
-                >
-                    <FaGoogle className="w-4 h-4" />
-                    Continue with Google
-                </Button>
-                <Button
-                    variant="outline"
-                    className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
-                    onClick={() => handleOAuthLogin("github")}
-                >
-                    <FaGithub className="w-4 h-4" />
-                    Continue with GitHub
-                </Button>
-            </div>
+            <OAuthButtons
+                onGoogleLogin={() => handleOAuthLogin("google")}
+                onGitHubLogin={() => handleOAuthLogin("github")}
+            />
 
             {/* Divider */}
             <div className="text-center text-sm text-muted-foreground mb-4">or</div>
