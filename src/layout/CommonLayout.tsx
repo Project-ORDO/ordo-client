@@ -7,7 +7,7 @@ const CommonLayout = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen p-4">
+     <main className=" p-4">    {/* i have removed min-h-screen because it is causing unwanted white space */}
         <Outlet />
       </main>
       <Footer />
