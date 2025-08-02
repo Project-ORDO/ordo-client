@@ -20,7 +20,7 @@ import { EmailVerificationFailedPage } from "@/pages/user/auth/VerificationFaile
 import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPage";
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 import NotFoundPage from '@/pages/common/404Page'
-import { LoginScreen } from "@/pages/user/auth/LoginPage";
+import { LoginForm } from "@/pages/user/auth/LoginPage";
 
 const AppRoutes = () => {
   return (
@@ -32,7 +32,7 @@ const AppRoutes = () => {
             path="/login"
             element={
               <PublicRoute>
-                <LoginScreen />
+                <LoginForm />
               </PublicRoute>
             }
           />
