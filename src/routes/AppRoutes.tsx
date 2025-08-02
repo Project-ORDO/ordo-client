@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
-import Login from "@/pages/common/Login";
+// import Login from "@/pages/common/Login";
 import Signup from "@/pages/common/Signup";
 import ForgotPassword from "@/pages/common/ForgotPassword";
 
@@ -21,6 +21,7 @@ import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPa
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 import NotFoundPage from '@/pages/common/404Page';
 import UnAuthorized from '@/pages/common/UnAuthorized';
+import { LoginScreen } from "@/pages/user/auth/LoginPage";
 
 const AppRoutes = () => {
   return (
@@ -32,7 +33,7 @@ const AppRoutes = () => {
             path="/login"
             element={
               <PublicRoute>
-                <Login />
+                <LoginScreen />
               </PublicRoute>
             }
           />
