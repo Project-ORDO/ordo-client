@@ -13,6 +13,8 @@ import { Github, Mail } from "lucide-react"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
 import  { signupSchema } from "@/validation/authValidation"
+import { Link } from "react-router-dom";  // or 'next/link' for Next.js
+
 
 export function SignupForm() {
   type SignupFormData = InferType<typeof signupSchema>;
@@ -156,6 +158,21 @@ function onSubmit(values: SignupFormData) {
           </Button>
         </form>
       </Form>
+      <p
+        style={{
+          textAlign: "center",
+          marginTop: "1rem",
+          color: "var(--color-muted-foreground)"
+        }}
+      >
+        Already have an account?{" "}
+        <Link
+          to="/login"
+          style={{ color: "var(--color-primary)", fontWeight: "bold" }}
+        >
+          Login
+        </Link>
+      </p>
     </div>
   )
 }
