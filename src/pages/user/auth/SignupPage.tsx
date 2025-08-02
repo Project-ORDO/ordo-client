@@ -9,11 +9,11 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { Github, Mail } from "lucide-react"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
 import { signupSchema } from "@/validation/authValidation"
 import { Link } from "react-router-dom";
+import OAuthButtons from "@/components/auth/OAuthButtons"
 
 
 export function SignupForm() {
@@ -44,24 +44,10 @@ export function SignupForm() {
             <h2 className="text-xl font-semibold mb-6 text-center">Create Account</h2>
 
             {/* OAuth Buttons */}
-            <div className="space-y-3 mb-6">
-                <Button
-                    variant="outline"
-                    className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
-                    onClick={() => handleOAuthSignup("google")}
-                >
-                    <Mail className="w-4 h-4" />
-                    Sign up with Google
-                </Button>
-                <Button
-                    variant="outline"
-                    className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
-                    onClick={() => handleOAuthSignup("github")}
-                >
-                    <Github className="w-4 h-4" />
-                    Sign up with GitHub
-                </Button>
-            </div>
+            <OAuthButtons
+                onGoogleLogin={() => handleOAuthSignup("google")}
+                onGitHubLogin={() => handleOAuthSignup("github")}
+            />
 
             {/* Divider */}
             <div className="text-center text-sm text-muted-foreground mb-4">or</div>
