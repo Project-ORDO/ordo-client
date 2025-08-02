@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { yupResolver } from "@hookform/resolvers/yup"
+// import { InferType } from "yup"
+import type { InferType } from "yup"
+
+
+
 import {
   Form,
   FormControl,
@@ -9,25 +15,22 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { Github, Mail } from "lucide-react"
+import { loginSchema } from "@/validation/authValidation"
 
-const loginSchema = z.object({
-  email: z.string().email({ message: "Enter a valid email" }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
-})
 
 export function LoginForm() {
-  const form = useForm<z.infer<typeof loginSchema>>({
-    resolver: zodResolver(loginSchema),
+    type LoginFormData = InferType<typeof loginSchema>;
+
+const form = useForm<LoginFormData>({
+    resolver: yupResolver(loginSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof loginSchema>) {
+function onSubmit(values: LoginFormData) {
     console.log("Login values:", values)
     // Handle login logic here
   }
