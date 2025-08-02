@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Form,
   FormField,
@@ -12,22 +10,15 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Github, Mail } from "lucide-react"
-
-const signupSchema = z
-  .object({
-    username: z.string().min(3, { message: "Username must be at least 3 characters" }),
-    email: z.string().email({ message: "Enter a valid email" }),
-    password: z.string().min(6, { message: "Password must be at least 6 characters" }),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  })
+import { yupResolver } from "@hookform/resolvers/yup"
+import type { InferType } from "yup"
+import  { signupSchema } from "@/validation/authValidation"
 
 export function SignupForm() {
-  const form = useForm<z.infer<typeof signupSchema>>({
-    resolver: zodResolver(signupSchema),
+  type SignupFormData = InferType<typeof signupSchema>;
+ 
+ const form = useForm<SignupFormData>({
+     resolver: yupResolver(signupSchema),
     defaultValues: {
       username: "",
       email: "",
@@ -36,7 +27,7 @@ export function SignupForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof signupSchema>) {
+function onSubmit(values: SignupFormData) {
     console.log("Signup values:", values)
     // Handle signup logic here
   }
