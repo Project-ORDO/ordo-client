@@ -21,7 +21,7 @@ import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPa
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 import NotFoundPage from '@/pages/common/404Page';
 import UnAuthorized from '@/pages/common/UnAuthorized';
-import { LoginScreen } from "@/pages/user/auth/LoginPage";
+import { LoginForm } from "@/pages/user/auth/LoginPage";
 
 const AppRoutes = () => {
   return (
@@ -33,7 +33,7 @@ const AppRoutes = () => {
             path="/login"
             element={
               <PublicRoute>
-                <LoginScreen />
+                <LoginForm />
               </PublicRoute>
             }
           />
