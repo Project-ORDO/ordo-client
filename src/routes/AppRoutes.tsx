@@ -3,7 +3,7 @@ import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
 // import Login from "@/pages/common/Login";
-import Signup from "@/pages/common/Signup";
+// import Signup from "@/pages/common/Signup";
 import ForgotPassword from "@/pages/common/ForgotPassword";
 
 
@@ -21,6 +21,7 @@ import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPa
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 import NotFoundPage from '@/pages/common/404Page'
 import { LoginForm } from "@/pages/user/auth/LoginPage";
+import { SignupForm } from "@/pages/user/auth/SignupPage";
 
 const AppRoutes = () => {
   return (
@@ -41,7 +42,7 @@ const AppRoutes = () => {
             path="/signup"
             element={
               <PublicRoute>
-                <Signup />
+                <SignupForm />
               </PublicRoute>
             }
           />
