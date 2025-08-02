@@ -13,7 +13,7 @@ import { Github, Mail } from "lucide-react"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
 import  { signupSchema } from "@/validation/authValidation"
-import { Link } from "react-router-dom";  // or 'next/link' for Next.js
+import { Link } from "react-router-dom"; 
 
 
 export function SignupForm() {

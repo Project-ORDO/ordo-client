@@ -3,6 +3,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
+import { Link } from "react-router-dom";  
+
 
 
 
@@ -116,6 +118,21 @@ function onSubmit(values: LoginFormData) {
           </Button>
         </form>
       </Form>
+      <p
+        style={{
+          textAlign: "center",
+          marginTop: "1rem",
+          color: "var(--color-muted-foreground)"
+        }}
+      >
+        Don't have an account?{" "}
+        <Link
+          to="/signup"
+          style={{ color: "var(--color-primary)", fontWeight: "bold" }}
+        >
+          Sign up
+        </Link>
+      </p>
     </div>
   )
 }
