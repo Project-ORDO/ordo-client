@@ -4,9 +4,7 @@ import { Label } from "@/components/ui/label"
 import { yupResolver } from "@hookform/resolvers/yup"
 import type { InferType } from "yup"
 import { Link } from "react-router-dom";
-
-
-
+import { FaGoogle, FaGithub } from "react-icons/fa"; // Font Awesome icons
 
 import {
     Form,
@@ -16,7 +14,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
-import { Github, Mail } from "lucide-react"
+import { Github, GithubIcon, Mail } from "lucide-react"
 import { loginSchema } from "@/validation/authValidation"
 
 
@@ -52,7 +50,7 @@ export function LoginForm() {
                     className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
                     onClick={() => handleOAuthLogin("google")}
                 >
-                    <Mail className="w-4 h-4" />
+                    <FaGoogle className="w-4 h-4" />
                     Continue with Google
                 </Button>
                 <Button
@@ -60,7 +58,7 @@ export function LoginForm() {
                     className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
                     onClick={() => handleOAuthLogin("github")}
                 >
-                    <Github className="w-4 h-4" />
+                    <FaGithub className="w-4 h-4" />
                     Continue with GitHub
                 </Button>
             </div>
