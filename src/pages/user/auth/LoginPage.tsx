@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Github, Mail } from "lucide-react"
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Enter a valid email" }),
@@ -22,15 +29,44 @@ export function LoginForm() {
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
     console.log("Login values:", values)
-    // Handle login logic here (API call etc.)
+    // Handle login logic here
+  }
+
+  function handleOAuthLogin(provider: "google" | "github") {
+    console.log(`Login with ${provider}`)
+    // Trigger your OAuth logic here
   }
 
   return (
-    <div className="max-w-sm mx-auto mt-10 px-4 py-6 rounded-[var(--radius-md)] shadow-md border border-gray-200 bg-white">
+    <div className="max-w-sm mx-auto mt-10 px-4 py-6 rounded-[var(--radius-md)] shadow-md border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-card-foreground)]">
       <h2 className="text-xl font-semibold mb-6 text-center">Login</h2>
+
+      {/* OAuth Buttons */}
+      <div className="space-y-3 mb-6">
+        <Button
+          variant="outline"
+          className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
+          onClick={() => handleOAuthLogin("google")}
+        >
+          <Mail className="w-4 h-4" />
+          Continue with Google
+        </Button>
+        <Button
+          variant="outline"
+          className="w-full flex items-center justify-center gap-2 rounded-[var(--radius-md)]"
+          onClick={() => handleOAuthLogin("github")}
+        >
+          <Github className="w-4 h-4" />
+          Continue with GitHub
+        </Button>
+      </div>
+
+      {/* Divider */}
+      <div className="text-center text-sm text-muted-foreground mb-4">or</div>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-          {/* Email Field */}
+          {/* Email */}
           <FormField
             control={form.control}
             name="email"
@@ -51,7 +87,7 @@ export function LoginForm() {
             )}
           />
 
-          {/* Password Field */}
+          {/* Password */}
           <FormField
             control={form.control}
             name="password"
