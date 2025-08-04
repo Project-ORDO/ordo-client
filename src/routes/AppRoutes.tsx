@@ -19,7 +19,8 @@ import { CheckEmailPage } from "@/pages/user/auth/CheckEmailPage";
 import { EmailVerificationFailedPage } from "@/pages/user/auth/VerificationFailedPage";
 import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPage";
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
-import NotFoundPage from '@/pages/common/404Page'
+import NotFoundPage from '@/pages/common/404Page';
+import UnAuthorized from '@/pages/common/UnAuthorized';
 
 const AppRoutes = () => {
   return (
@@ -121,9 +122,11 @@ const AppRoutes = () => {
 
         {/* Others */}
          <Route element={<CommonLayout />}>
-          <Route path="/unauthorized" element={<div>Access Denied</div>} />
+          <Route path="/unauthorized" element={<UnAuthorized />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+
+        
       </Routes>
     </BrowserRouter>
   );
