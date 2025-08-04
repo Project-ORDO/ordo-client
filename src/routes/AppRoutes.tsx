@@ -4,6 +4,8 @@ import ProtectedRoute from "./ProtectedRoute";
 
 // import Login from "@/pages/common/Login";
 // import Signup from "@/pages/common/Signup";
+// import Login from "@/pages/common/Login";
+// import Signup from "@/pages/common/Signup";
 import ForgotPassword from "@/pages/common/ForgotPassword";
 
 
@@ -38,7 +40,7 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
-       
+
           <Route
             path="/signup"
             element={
@@ -79,18 +81,18 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
-         
-         
+
+
 
           <Route
-          path="/forgot-password"
-          element={
-            <PublicRoute>
-              <ForgotPassword />
-            </PublicRoute>
-          }
-        />
-         <Route path="/profile" element={<Profile />} />
+            path="/forgot-password"
+            element={
+              <PublicRoute>
+                <ForgotPassword />
+              </PublicRoute>
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
         </Route>
 
 
@@ -106,7 +108,7 @@ const AppRoutes = () => {
           }
         >
           <Route index element={<Home />} />
-         
+
         </Route>
 
         {/* 🛡️ Admin Protected Routes */}
@@ -123,12 +125,12 @@ const AppRoutes = () => {
         </Route>
 
         {/* Others */}
-         <Route element={<CommonLayout />}>
+        <Route element={<CommonLayout />}>
           <Route path="/unauthorized" element={<UnAuthorized />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        
+
       </Routes>
     </BrowserRouter>
   );
