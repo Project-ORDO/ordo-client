@@ -1,4 +1,11 @@
-import React from "react";
+import {
+  useForm,
+  type SubmitHandler,
+  type FieldValues,
+  type Path,
+} from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -9,27 +16,37 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
 
-interface ReusableFormProps {
-  onSubmit: (data: any) => void;
-  fields: {
-    name: string;
-    label: string;
-    type?: string;
-    placeholder?: string;
-    validation?: object;
-  }[];
-  submitText: string;
+export interface FieldConfig<T extends FieldValues> {
+  name: Path<T>;
+  label: string;
+  type?: string;
+  placeholder?: string;
+  autoComplete?: string;
 }
 
-export function ReusableForm({ onSubmit, fields, submitText }: ReusableFormProps) {
-  const form = useForm();
+interface ReusableFormProps<T extends FieldValues> {
+  onSubmit: SubmitHandler<T>;
+  fields: FieldConfig<T>[];
+  submitText: string;
+  schema: yup.ObjectSchema<any>;
+}
+
+export function ReusableForm<T extends FieldValues>({
+  onSubmit,
+  fields,
+  submitText,
+  schema,
+}: ReusableFormProps<T>) {
+  const methods = useForm<T>({
+    resolver: yupResolver(schema),
+    mode: "onChange",
+  });
 
   return (
-    <Form {...form}>
+    <Form {...methods}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={methods.handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -41,12 +58,11 @@ export function ReusableForm({ onSubmit, fields, submitText }: ReusableFormProps
           border: `1px solid var(--color-border)`,
         }}
       >
-        {fields.map(({ name, label, type = "text", placeholder, validation }) => (
+        {fields.map(({ name, label, type = "text", placeholder ,autoComplete }) => (
           <FormField
             key={name}
-            control={form.control}
+            control={methods.control}
             name={name}
-            rules={validation}
             render={({ field }) => (
               <FormItem>
                 <FormLabel style={{ color: "var(--color-primary-foreground)" }}>
@@ -57,6 +73,8 @@ export function ReusableForm({ onSubmit, fields, submitText }: ReusableFormProps
                     {...field}
                     type={type}
                     placeholder={placeholder}
+                    autoComplete={autoComplete}
+
                     style={{
                       backgroundColor: "var(--color-input)",
                       borderRadius: "var(--radius-sm)",
@@ -82,7 +100,7 @@ export function ReusableForm({ onSubmit, fields, submitText }: ReusableFormProps
             border: "none",
             cursor: "pointer",
           }}
-          disabled={!form.formState.isValid}
+          disabled={!methods.formState.isValid}
         >
           {submitText}
         </Button>
