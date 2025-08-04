@@ -2,13 +2,13 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // or 'next/router' if Next.js
+import { useNavigate } from "react-router-dom";
 
 const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-scree  px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4">
       <motion.div
         animate={{ rotate: [0, 10, -10, 0] }}
         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
