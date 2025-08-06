@@ -2,8 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PublicRoute from "./PublicRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
-import Login from "@/pages/common/Login";
-import Signup from "@/pages/common/Signup";
+// import Login from "@/pages/common/Login";
+// import Signup from "@/pages/common/Signup";
+// import Login from "@/pages/common/Login";
+// import Signup from "@/pages/common/Signup";
 import ForgotPassword from "@/pages/common/ForgotPassword";
 
 
@@ -21,6 +23,8 @@ import { VerificationSuccessPage } from "@/pages/user/auth/VerificationSuccessPa
 import { VerificationExpiredPage } from "@/pages/user/auth/VerificationExpiredPage";
 import NotFoundPage from '@/pages/common/404Page';
 import UnAuthorized from '@/pages/common/UnAuthorized';
+import { LoginForm } from "@/pages/user/auth/LoginPage";
+import { SignupForm } from "@/pages/user/auth/SignupPage";
 
 const AppRoutes = () => {
   return (
@@ -32,16 +36,16 @@ const AppRoutes = () => {
             path="/login"
             element={
               <PublicRoute>
-                <Login />
+                <LoginForm />
               </PublicRoute>
             }
           />
-       
+
           <Route
             path="/signup"
             element={
               <PublicRoute>
-                <Signup />
+                <SignupForm />
               </PublicRoute>
             }
           />
@@ -77,18 +81,18 @@ const AppRoutes = () => {
               </PublicRoute>
             }
           />
-         
-         
+
+
 
           <Route
-          path="/forgot-password"
-          element={
-            <PublicRoute>
-              <ForgotPassword />
-            </PublicRoute>
-          }
-        />
-         <Route path="/profile" element={<Profile />} />
+            path="/forgot-password"
+            element={
+              <PublicRoute>
+                <ForgotPassword />
+              </PublicRoute>
+            }
+          />
+          <Route path="/profile" element={<Profile />} />
         </Route>
 
 
@@ -104,7 +108,7 @@ const AppRoutes = () => {
           }
         >
           <Route index element={<Home />} />
-         
+
         </Route>
 
         {/* 🛡️ Admin Protected Routes */}
@@ -121,12 +125,12 @@ const AppRoutes = () => {
         </Route>
 
         {/* Others */}
-         <Route element={<CommonLayout />}>
+        <Route element={<CommonLayout />}>
           <Route path="/unauthorized" element={<UnAuthorized />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
-        
+
       </Routes>
     </BrowserRouter>
   );
